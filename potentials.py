@@ -2,10 +2,10 @@ import numpy as np
 
 class Potential:
     pass
-class FreeParticle:
+class FreeParticle(Potential):
     pass
 
-class InfiniteSquareWell:
+class InfiniteSquareWell(Potential):
     pass
 
 class FiniteSquareWell(Potential):
