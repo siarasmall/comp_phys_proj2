@@ -15,6 +15,10 @@ class Potential:
 
     def getMatrix(self):
         return self.matrix
+
+    def getMagitudes(self):
+        return self.mags
+
 class PotentialWithBarriers(Potential):
     def __init__(self, data, total_num) -> None:
         """
