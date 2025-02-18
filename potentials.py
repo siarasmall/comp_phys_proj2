@@ -1,5 +1,4 @@
 import numpy as np
-from scipy.sparse import diags
 class Potential:
     def __init__(self, mags, total_num) -> None:
         """
@@ -10,7 +9,7 @@ class Potential:
             - Total_num (int): total number of x values
         """
         self.mags = mags
-        self.matrix = diags([np.ones(total_num-1),-2*np.ones(total_num),np.ones(total_num-1)], [-1,0,1]).toarray()
+        self.matrix = np.diagflat(mags)
         self.total_num = total_num
 
     def getMatrix(self):
@@ -78,7 +77,8 @@ class FiniteSquareWell(PotentialWithBarriers):
         super().__init__(data, total_num)
 
 class FreeParticle(Potential):
-    pass
+    def __init__(self, total_num) -> None:
+        super().__init__(np.zeroes(total_num), total_num)
 
 class TriangleWell(Potential):
     pass
