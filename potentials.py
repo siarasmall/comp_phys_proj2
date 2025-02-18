@@ -26,11 +26,11 @@ class PotentialWithBarriers(Potential):
             - data: List of tuples (start, stop, mag) representing the start index, stop index, 
             and magnitude of each "barrier"/block
         """
-        V = np.zeros([total_num, total_num])
+        V = np.zeros([total_num])
         for start, stop, mag in data:
             for i in range (start, stop):
-                V[i][i] = mag
-        super.__init__(V, total_num)
+                V[i] = mag
+        super().__init__(V, total_num)
 
 class Barrier(PotentialWithBarriers):
     def __init__(self, start, stop, y0, a, total_num) -> None:
